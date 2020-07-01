@@ -70,6 +70,10 @@
       font-style: normal;
     }
 
+    .meta-info p {
+      margin: 0px;
+    }
+
     .card-meta {
       display: flex;
 
@@ -103,6 +107,10 @@
 
       border: none;
 
+
+    }
+
+    .share-button-wrapper {
       position: relative;
     }
 
@@ -251,26 +259,28 @@
         <img src="images/avatar-michelle.jpg" alt="author" class="avatar"/>
         <div class="meta-info">
           <address>Michelle Appleton</address>
-          <time>28 Jun 2020</time>
+          <p>28 Jun 2020</p>
         </div>
-        <button class="share-button" onclick="toggleActive()">
-          <img src="images/icon-share.svg" />
+        <div class="share-button-wrapper">
+          <button class="share-button" onclick="toggleActive()">
+            <img alt="share" src="images/icon-share.svg" />
+          </button>
           <div id="NormalMenu" class="menu">
             <span>SHARE</span>
-            <a href="https://facebook.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-facebook.svg" /></a>
-            <a href="https://twitter.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-twitter.svg" /></a>
-            <a href="https://pinterest.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-pinterest.svg" /></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"><img alt="facebook" src="images/icon-facebook.svg" /></a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer noopener"><img alt="twitter" src="images/icon-twitter.svg" /></a>
+            <a href="https://pinterest.com" target="_blank" rel="noreferrer noopener"><img alt="pinterest" src="images/icon-pinterest.svg" /></a>
           </div>
-        </button>
+        </div>
 
       </div>
 
     </div>
     <div id="MobileMenu" class="menu">
       <span>SHARE</span>
-      <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-facebook.svg" /></a>
-      <a href="https://twitter.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-twitter.svg" /></a>
-      <a href="https://pinterest.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-pinterest.svg" /></a>
+      <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"><img alt="facebook" src="images/icon-facebook.svg" /></a>
+      <a href="https://twitter.com" target="_blank" rel="noreferrer noopener"><img alt="twitter" src="images/icon-twitter.svg" /></a>
+      <a href="https://pinterest.com" target="_blank" rel="noreferrer noopener"><img alt="pinterest" src="images/icon-pinterest.svg" /></a>
     </div>
   </div>
 
