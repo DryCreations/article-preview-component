@@ -27,7 +27,7 @@
       background: #FFF;
       width: 800px;
       height: 300px;
-      overflow: hidden;
+      position: relative;
 
       display: flex;
 
@@ -39,6 +39,7 @@
     }
 
     .featured-image-wrapper {
+      border-radius: 10px 0px 0px 10px;
       height: 100%;
       overflow:hidden;
 
@@ -53,6 +54,10 @@
       padding: 30px;
 
       flex: 6;
+    }
+
+    .card-body p {
+      margin-bottom: 35px;
     }
 
     h1 {
@@ -87,7 +92,7 @@
     }
 
     .share-button {
-      
+
 
       width: 45px;
       height: 45px;
@@ -97,10 +102,93 @@
       border-radius: 100%;
 
       border: none;
+
+      position: relative;
+    }
+
+    .share-button.active {
+      background-color: hsl(217, 19%, 35%);
+      z-index: 2;
+    }
+    .share-button.active img {
+      filter: grayscale(100%) brightness(200%);
     }
 
     .share-button img {
       width: 60%;
+    }
+    .share-button:hover {
+      cursor: pointer;
+    }
+
+    .menu {
+      background-color: hsl(217, 19%, 35%);
+
+      align-items: center;
+
+      color: hsl(210, 46%, 95%);
+    }
+
+    #NormalMenu {
+      position: absolute;
+      justify-content: center;
+      display: none;
+
+      bottom: 80px;
+      padding: 15px;
+
+      width: 220px;
+      border-radius: 10px;
+      left: -100px;
+
+      box-shadow: 5px 5px 50px hsl(214, 17%, 80%);
+
+      cursor: default;
+
+    }
+    #NormalMenu:after {
+        content:'';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-top: solid 10px hsl(217, 19%, 35%);
+        border-left: solid 10px transparent;
+        border-right: solid 10px transparent;
+    }
+
+    #NormalMenu img {
+      margin-left: 10px;
+      width: 30px;
+    }
+
+    #NormalMenu.active {
+      display: flex;
+    }
+
+    #MobileMenu {
+      display: none;
+      z-index: 1;
+
+      position: absolute;
+      padding:30px 0px;
+      height: 45px;
+      bottom:0px;
+
+      width: 100%;
+
+      border-radius: 0px 0px 10px 10px;
+    }
+
+    #MobileMenu img {
+      margin-left: 10px;
+      width: 30px;
+    }
+
+    #MobileMenu span {
+      margin-left: 30px;
     }
 
     @media only screen and (max-width: 800px) {
@@ -115,15 +203,37 @@
       }
 
       .featured-image-wrapper {
-        flex: 5
+        flex: 5;
+
+        border-radius: 10px 10px 0px 0px;
       }
 
       .featured-image {
         height:auto;
         width: 100%;
       }
+
+      #NormalMenu.active {
+        display: none;
+      }
+
+      #MobileMenu.active {
+        display: flex;
+      }
+
+      .share-button.active {
+        background-color:hsl(214, 17%, 51%);
+      }
     }
   </style>
+  <script>
+    function toggleActive() {
+      let items = document.querySelectorAll(".menu, .share-button");
+      for (let i = 0; i < items.length; i++) {
+        items[i].classList.toggle('active');
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -143,12 +253,25 @@
           <address>Michelle Appleton</address>
           <time>28 Jun 2020</time>
         </div>
-        <button class="share-button">
+        <button class="share-button" onclick="toggleActive()">
           <img src="images/icon-share.svg" />
+          <div id="NormalMenu" class="menu">
+            <span>SHARE</span>
+            <a href="https://facebook.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-facebook.svg" /></a>
+            <a href="https://twitter.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-twitter.svg" /></a>
+            <a href="https://pinterest.com" target="_blank" rel=”noreferrer noopener”><img src="images/icon-pinterest.svg" /></a>
+          </div>
         </button>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
+    <div id="MobileMenu" class="menu">
+      <span>SHARE</span>
+      <a href="https://facebook.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-facebook.svg" /></a>
+      <a href="https://twitter.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-twitter.svg" /></a>
+      <a href="https://pinterest.com" target="_blank" rel="noreferrer noopener"><img src="images/icon-pinterest.svg" /></a>
+    </div>
   </div>
 
   <div class="attribution">
